@@ -1,4 +1,6 @@
-import React from "react";
+import React from 'react';
+import { useState} from "react";
+import {useNavigate} from 'react-router-dom';
 import { Button } from "../../components/button/styles";
 import { Imgs } from "../../components/img";
 import Input from "../../components/input";
@@ -7,7 +9,17 @@ import Minifruit from '../../assets/mini-fruit.svg'
 import Fruit from '../../assets/basketfruit2.svg'
 import Shadow from '../../assets/shadow2.svg'
 
+
 export function Enter(props){
+
+    const navigate = useNavigate();
+
+    const navigateNext = () =>{
+        navigate('/home');   
+    };
+
+    const [name, setName] = useState();
+
     return( 
         <ContainerEnter>
             <UpContent>
@@ -31,8 +43,13 @@ export function Enter(props){
                     <Input
                         type={"text"}
                         placeholder="Tony"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
                     />
-                    <Button>
+                    <Button 
+                        type="submit"
+                        onClick={navigateNext}
+                    >
                         Start Ordering
                     </Button>
             </DownContent>
