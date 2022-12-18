@@ -1,13 +1,19 @@
 
-import { FirstSection, InputDiv } from "./styles";
+import { FirstSection, InputDiv, InvButton, BasketBar } from "./styles";
 import Input from '../../components/input/index';
-import icon from '../../assets/search.svg';
-import filter from '../../assets/filter.svg'
 import Imgs from "../../components/img";
 
+//imports icons
+import icon from '../../assets/search.svg';
+import filter from '../../assets/filter.svg';
+import menuicon from '../../assets/menuIcon.svg';
+import basket from '../../assets/basket.svg';
 
 
-export function Home(props){
+
+
+
+export function Home(){
 
     const divStyle = {
         backgroundImage: 'url(' + icon + ')',
@@ -18,27 +24,40 @@ export function Home(props){
         backgroundSize: '25px',
     }; 
 
+
     return(
         <FirstSection>
-            <h1  >Hello name, What fruit salad combo do you want today?</h1>
-
-
-            
-
-                <InputDiv>
+            <BasketBar>
+                <InvButton>
+                    <Imgs 
+                        src={menuicon}
+                        width={'35px'}
+                    />
+                </InvButton>
+                <InvButton
+                    style={{display: 'grid', justifyItems: 'center'}}
+                >
+                    <Imgs 
+                        src={basket}
+                        width={'35px'}
+                    />
+                    My basket
+                </InvButton>
+            </BasketBar>
+            <h1>  Hello name, What fruit salad combo do you want today?</h1>
+            <InputDiv>
                     <Input 
                         placeholder="Search for fruit salad combos"
                         style={divStyle}
                     />
-                    
-                    <button >
+                    <InvButton>
                         <Imgs 
                             src={filter} 
                             alt="Filter"
                             width={'35px'}
                         />
-                    </button>
-                </InputDiv>
+                    </InvButton>
+            </InputDiv>
         </FirstSection>
     );
 }

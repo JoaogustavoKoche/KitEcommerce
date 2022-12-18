@@ -13,16 +13,16 @@ export function Enter(props){
 
     const navigate = useNavigate();
 
-    const navigateNext = (props) =>{
+    const navigateNext = () =>{
         navigate('/home');   
         
     };
 
- 
     const [name, setName] = useState('');
 
     function handleOnChange(e){    
         setName(e.target.value);
+        
     } 
 
     return( 
