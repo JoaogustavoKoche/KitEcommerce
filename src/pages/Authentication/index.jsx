@@ -9,16 +9,21 @@ import Minifruit from '../../assets/mini-fruit.svg'
 import Fruit from '../../assets/basketfruit2.svg'
 import Shadow from '../../assets/shadow2.svg'
 
-
 export function Enter(props){
 
     const navigate = useNavigate();
 
-    const navigateNext = () =>{
+    const navigateNext = (props) =>{
         navigate('/home');   
+        
     };
 
-    const [name, setName] = useState();
+ 
+    const [name, setName] = useState('');
+
+    function handleOnChange(e){    
+        setName(e.target.value);
+    } 
 
     return( 
         <ContainerEnter>
@@ -44,7 +49,7 @@ export function Enter(props){
                         type={"text"}
                         placeholder="Tony"
                         value={name}
-                        onChange={(e) => setName(e.target.value)}
+                        onChange={handleOnChange}
                     />
                     <Button 
                         type="submit"

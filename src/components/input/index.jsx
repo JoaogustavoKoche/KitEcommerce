@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export const Input = styled.input`
 
-    background: #cfcece;
+    background: #F3F4F9;
     border-radius: 10px;
     border-style: none;
     width: 80vw;
@@ -20,6 +20,7 @@ export const Input = styled.input`
     letter-spacing: -0.01em;
     color: #4a4a4a;
 
+    //background-image: ${(props) => props.image || 'none'};
 `;
 
 
