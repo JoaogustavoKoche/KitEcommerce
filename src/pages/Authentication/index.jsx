@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState} from "react";
-import {useNavigate} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import { Button } from "../../components/button/styles";
 import { Imgs } from "../../components/img";
 import Input from "../../components/input";
@@ -11,18 +11,10 @@ import Shadow from '../../assets/shadow2.svg'
 
 export function Enter(props){
 
-    const navigate = useNavigate();
-
-    const navigateNext = () =>{
-        navigate('/home');   
-        
-    };
-
     const [name, setName] = useState('');
 
     function handleOnChange(e){    
-        setName(e.target.value);
-        
+        setName(e.target.value);  
     } 
 
     return( 
@@ -51,12 +43,16 @@ export function Enter(props){
                         value={name}
                         onChange={handleOnChange}
                     />
-                    <Button 
-                        type="submit"
-                        onClick={navigateNext}
+                    <Link 
+                        to="/home"
+                        state={{name: name}}
                     >
-                        Start Ordering
-                    </Button>
+                        <Button 
+                            type="submit"
+                        >
+                            Start Ordering
+                        </Button>
+                    </Link>
             </DownContent>
         </ContainerEnter>
     );

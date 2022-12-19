@@ -2,6 +2,7 @@
 import { FirstSection, InputDiv, InvButton, BasketBar } from "./styles";
 import Input from '../../components/input/index';
 import Imgs from "../../components/img";
+import { useLocation } from "react-router-dom";
 
 //imports icons
 import icon from '../../assets/search.svg';
@@ -10,11 +11,12 @@ import menuicon from '../../assets/menuIcon.svg';
 import basket from '../../assets/basket.svg';
 
 
-
-
-
 export function Home(){
 
+    const location = useLocation();
+
+    const name = location.state?.name;
+    
     const divStyle = {
         backgroundImage: 'url(' + icon + ')',
         backgroundRepeat: 'no-repeat',  
@@ -44,7 +46,7 @@ export function Home(){
                     My basket
                 </InvButton>
             </BasketBar>
-            <h1>  Hello name, What fruit salad combo do you want today?</h1>
+            <h1>  Hello {name} What fruit salad combo do you want today?</h1>          
             <InputDiv>
                     <Input 
                         placeholder="Search for fruit salad combos"
